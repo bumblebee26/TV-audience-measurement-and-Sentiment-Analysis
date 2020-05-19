@@ -22,7 +22,7 @@ Digital Video Watermarking the channel provider content with hidden watermark an
 </p>
 
 ##### Watermarking Demo
-[Watermarking Demo](http://www.youtube.com/watch?v=t-Om9ugJwDQ)
+[Youtube Demo](http://www.youtube.com/watch?v=t-Om9ugJwDQ)
 
 ![](Other%20data/ezgif.com-video-to-gif(1).gif "Digital Watermarking Output")
 
@@ -72,7 +72,7 @@ The smart meter consists of a camera which captures the viewers in front of the 
 [FER dataset training on Kaggle](https://www.kaggle.com/virenbr11/emotion-detection)
 
 ##### Age, Gender and Emotion Recognition Demo
-[Age, Gender and Emotion Recognition Demo](http://www.youtube.com/watch?v=cXv5vLklFic)
+[Youtube Demo](http://www.youtube.com/watch?v=cXv5vLklFic)
 
 ![](Other%20data/ezgif.com-video-to-gif(2).gif "Recognition Output")
 
