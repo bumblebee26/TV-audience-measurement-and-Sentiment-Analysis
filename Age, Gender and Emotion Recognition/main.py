@@ -26,7 +26,7 @@ data = []
 key = ['Channel_id', 'House_id', 'User_id', 'Timestamp', 'Age', 'Gender', 'Emotion']
 
 # Video input source 
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0, cv2.CAP_DSHOW) # Added CAP_DSHOW to get rid of SourceReaderCB warning
 (H, W) = (None, None)
 
 # Creating Video writer to save video // Keep the video writer frame dimensions same as the final frame dimensions// 
@@ -58,7 +58,7 @@ while True:
 
     faces = ct.update(detected_faces)       
 
-    for face, (user_id, cent) in zip(detected_faces, faces.items()):
+    for face, (user_id, centroid) in zip(detected_faces, faces.items()):
         startx, starty, endx, endy = face
 
         # Face region and preprocessing
@@ -66,6 +66,9 @@ while True:
         roi = frame[starty:endy, startx:endy].copy()
 
         try:
+            # Setting the color of detection box
+            r = 17; g = 128; b = 9;
+
             img = cv2.resize(groi, (48, 48))
             img = img.astype("float") / 255.0
             img = img_to_array(img)
@@ -88,12 +91,13 @@ while True:
                 
             # Posting information
             content = [("Emotion", label), ("Gender", gender), ("Age", age)]
+            cv2.rectangle(frame, (startx, starty - 35), (startx + 130, starty), (b, g, r), -1)
             for (i, (k, v)) in enumerate(content):
                 text = "{}: {}".format(k, v) 
                 cv2.putText(frame, text, (startx, starty - i*10 - 5),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 0), 1)
-            cv2.putText(frame, "Id {}".format(user_id), (cent[0] - 20, cent[1] - 20),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 0), 1)
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1)
+            cv2.putText(frame, "Id {}".format(user_id), (centroid[0] - 20 , centroid[1] - 20),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 
 
             # Sending data to database
@@ -102,12 +106,11 @@ while True:
             # print(dict(zip(key, entry)))
             # print("\n")
 
-            r = random.randint(0,255); g = random.randint(0,255); b = random.randint(0,255)
         except:
             r = 0; g = 0; b = 0
             pass 
 
-        cv2.rectangle(frame, (startx, starty), (endx, endy), (r, g, b), 2)
+        cv2.rectangle(frame, (startx, starty), (endx, endy), (b, g, r), 2)
 
     # out.write(frame)
     cv2.imshow("People's Meter", frame)
