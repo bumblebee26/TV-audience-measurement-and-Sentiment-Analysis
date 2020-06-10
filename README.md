@@ -81,12 +81,24 @@ The smart meter consists of a camera which captures the viewers in front of the 
 ### Data Visualization
 A website running on the local server, where the measurement authority can login and check the visualizations.
 
-<p align="center">
-  <img width="800" height="500" src="Other%20data/website_1.png">
-</p>
-<p align="center">
-  <img width="800" height="500" src="Other%20data/website_2.png">
-</p>
+<table>
+  <tr>
+    <td><img src="Other%20data/Visualizations/chart_1.jpg" title="Channel v/s Time" width="400" height="250"/></td>
+    <td><img src="Other%20data/Visualizations/chart_2.jpg" title="Time spent v/s gender" width="400" height="250"/></td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+    <td><img src="Other%20data/Visualizations/chart_3.jpg" title="Time spent vs languages" width="400" height="250"/></td>
+    <td><img src="Other%20data/Visualizations/chart_4.jpg" title="Growth of channel viewers" width="400" height="250"/></td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+    <td><img src="Other%20data/Visualizations/chart_5.jpg" title="Genre v/s hours" width="400" height="250"/></td>
+    <td><img src="Other%20data/Visualizations/chart_6.jpg" title="People's emotion for a channel" width="400" height="250"/></td>
+  </tr>
+ </table>
 
 
 ## Other Authors
